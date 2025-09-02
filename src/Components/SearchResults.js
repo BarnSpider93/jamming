@@ -1,15 +1,12 @@
-function SearchResults({ results }) {
+import Tracklist from "./Tracklist.js";
+
+function SearchResults({ tracks, onAdd}) {
   return (
-    <div className='results'>
+    <div className="results">
       <h2>Results</h2>
-      {results.map(track => (
-        <div key={track.id}>
-          {track.name} - {track.artist}
-        </div>
-      ))}
+      <Tracklist tracks={tracks} actionLabel="+" onAction={onAdd} />
     </div>
   );
 }
 
-
-export default SearchResults
+export default SearchResults;

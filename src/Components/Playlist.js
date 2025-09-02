@@ -1,13 +1,17 @@
-function Playlist(props) {
-    return (
-        <div className='playlist'>
-            <h2>My Playlist</h2>
-            <ul>
-                <li></li>
-            </ul>
-            <button onClick='{SavePlaylist}'>Save Playlist</button>
-        </div>
-    )
+import Tracklist from './Tracklist.js'
+
+function Playlist({ name, tracks, onRemove, onNameChange, onSave }) {
+  return (
+    <div className="playlist">
+      <input
+        value={name}
+        onChange={(e) => onNameChange?.(e.target.value)}
+        placeholder="Playlist name"
+      />
+      <Tracklist tracks={tracks} actionLabel="-" onAction={onRemove} />
+      <button onClick={onSave}>Save to Spotify</button>
+    </div>
+  );
 }
 
-export default Playlist
+export default Playlist;

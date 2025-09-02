@@ -1,11 +1,17 @@
-function Track(props) {
-    return (
-        <div className='track' id='songId'>
-            <p>song title</p>
-            <p>artist</p>
-            <p>album</p>
+function Track({ track, actionLabel, onAction }) {
+  return (
+    <div>
+      <div className="trackInfo">
+        <strong>{track.name}</strong>
+        <div>
+          {track.artist} | {track.album}
         </div>
-    )
+      </div>
+      {actionLabel && (
+        <button onClick={() => onAction?.(track)}>{actionLabel}</button>
+      )}
+    </div>
+  );
 }
 
-export default Track
+export default Track;
